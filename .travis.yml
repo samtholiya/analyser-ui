@@ -22,6 +22,7 @@ jobs:
     - name: Dockerhub Deploy
       if: tag IS present
       stage: deploy
+      skip_cleanup: true
       script:
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - docker build . -t samtholiya/analyser-ui-service:$(git describe --tags)
