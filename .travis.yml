@@ -1,0 +1,30 @@
+  
+language: node
+
+# You don't need to test on very old versions of the Go compiler. It's the user's
+# responsibility to keep their compiler up to date.
+node:
+  - "14"
+git:
+  depth: 1
+
+services:
+  - docker
+install: true
+
+
+jobs:
+  include:
+    - stage: compile
+      script:
+        - yarn install
+        - yarn build
+    - name: Dockerhub Deploy
+      if: tag IS present
+      stage: deploy
+      script:
+        - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        - docker build . -t samtholiya/analyser-ui-service:$(git describe --tags)
+        - docker build . -t samtholiya/analyser-ui-service:latest
+        - docker push samtholiya/analyser-ui-service:$(git describe --tags)
+        - docker push samtholiya/analyser-ui-service:latest
