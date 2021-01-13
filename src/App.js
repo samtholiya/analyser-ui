@@ -32,7 +32,7 @@ function App() {
           <Form.Item name="data" label="URL">
             <Input placeholder="Enter a valid URL" />
           </Form.Item>
-          <Button type="primary" htmlType="submit" style={{color:"white"}} type="submit">Analyse</Button>
+          <Button type="primary" htmlType="submit">Analyse</Button>
         </Form>
         <Analysis loading={loading} data={data}/>
       </body>
