@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Analyser UI   [![Build Status](https://travis-ci.com/samtholiya/analyser-ui.svg?branch=master)](https://travis-ci.com/samtholiya/analyser-ui)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
