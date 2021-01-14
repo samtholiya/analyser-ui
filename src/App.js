@@ -20,8 +20,8 @@ function App() {
     fetch(`${API_SERVER}/api/v1/analyser/html`, requestOptions)
       .then(response => response.json())
       .then(data => setData(data))
-      .catch(e => {message.error(e)})
-      .finally(()=>setLoading(false));
+      .catch(e => { console.log(e); message.error("Something went wrong") })
+      .finally(() => setLoading(false));
   }
 
   return (
@@ -34,7 +34,7 @@ function App() {
           </Form.Item>
           <Button type="primary" htmlType="submit">Analyse</Button>
         </Form>
-        <Analysis loading={loading} data={data}/>
+        <Analysis loading={loading} data={data} />
       </body>
     </div>
   );

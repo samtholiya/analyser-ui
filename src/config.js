@@ -1,1 +1,1 @@
-export const API_SERVER = process.env.HOST_URL
+export var API_SERVER = ""
